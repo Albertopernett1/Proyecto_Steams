@@ -61,3 +61,12 @@ def metascore(years: str):
         return resault
     except Exception as e:
         return {"error": str(e)}
+    
+
+@app.get("/prediction/{variables}")
+def predictor(variables: str):
+    try:
+        result = price_predictor(variables)
+        return result
+    except Exception as e:
+        return {"error": str(e)}
